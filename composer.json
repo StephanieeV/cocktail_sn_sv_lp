@@ -1,0 +1,36 @@
+{
+    "name": "snsvlp/cocktail-sn-sv-lp",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "authors": [
+        {
+            "name": "St\u00e9phanie Vi\u00e9ville",
+            "role": "Developer"
+        },
+        {
+            "name": "Sylvie Nguyen",
+            "role": "Developer"
+        },
+        {
+            "name": "Lucie Perruchaud",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^8.7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "SNSVLP\\CocktailSnSvLp\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SNSVLP\\CocktailSnSvLp\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "cocktail_sn_sv_lp": "self.version",
+        "typo3-ter/cocktail-sn-sv-lp": "self.version"
+    }
+}
