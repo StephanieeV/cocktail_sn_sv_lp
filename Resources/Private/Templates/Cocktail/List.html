@@ -12,7 +12,7 @@
 		<div class="container">
 			<div class="row">			
 				<h1>Liste de Cocktails</h1>
-				<f:widget.paginate objects="{cocktails}" as="paginatedCocktails" configuration="{itemsPerPage: 2, insertAbove: 1, insertBelow: 0, maximumNumberOfLinks: 9}">
+				<f:widget.paginate objects="{cocktails}" as="paginatedCocktails" configuration="{itemsPerPage: 9, insertAbove: 1, insertBelow: 0, maximumNumberOfLinks: 5}">
 						
 					<f:for each="{paginatedCocktails}" as="cocktail">
 						<div class="col-md-4">
@@ -27,7 +27,11 @@
 									<f:for each="{cocktail.photos}" as="photo">
 										<f:image 
 											class="img-responsive"
-										  	image="{photo}"
+											  image="{photo}"
+											  minWidth="400"
+											  minHeight="300"
+											  maxWidth="500"
+											  maxHeight="500"
 										  	treatIdAsReference="1"/>
 									</f:for>
 									<h3>Alcoolisé</h3>
