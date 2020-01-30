@@ -13,32 +13,32 @@
 	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 	<f:section name="content">
-		<h1>Listing for Cocktail</h1>
+		<h1>Liste de Cocktails</h1>
 
 		<f:flashMessages />
+
+		<p>Recherche</p> 
+		<f:form.textfield name="textRecherche" />
 
 		<table  class="tx_cocktailsnsvlp" >
 			<tr>
 				<th><f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.name" /></th>
 				<th><f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.alcoholised" /></th>
 				<th><f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.description" /></th>
-				<th><f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.photos" /></th>
-				<th> </th>
-				<th> </th>
 			</tr>
 
-			<f:for each="{cocktails}" as="cocktail">
-				<tr>
-					<td><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.name}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.alcoholised}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.description}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.photos}</f:link.action></td>
-					<td><f:link.action action="edit" arguments="{cocktail : cocktail}">Edit</f:link.action></td>
-					<td><f:link.action action="delete" arguments="{cocktail : cocktail}">Delete</f:link.action></td>
-				</tr>
-			</f:for>
+			<f:widget.paginate objects="{cocktails}" as="paginatedCocktails" configuration="{itemsPerPage: 1, insertAbove: 1, insertBelow: 0, maximumNumberOfLinks: 10}">
+				<f:for each="{paginatedCocktails}" as="cocktail">
+					<tr>
+						<td><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.name}</f:link.action></td>
+						<td><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.alcoholised}</f:link.action></td>
+						<td><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.description}</f:link.action></td>
+						<!-- <td><f:link.action action="edit" arguments="{cocktail : cocktail}">Edit</f:link.action></td> -->
+						<!-- <td><f:link.action action="delete" arguments="{cocktail : cocktail}">Delete</f:link.action></td> -->
+					</tr>
+				</f:for>
+			</f:widget.paginate>
 		</table>
 
-		<f:link.action action="new">New Cocktail</f:link.action>
 	</f:section>
 </html>

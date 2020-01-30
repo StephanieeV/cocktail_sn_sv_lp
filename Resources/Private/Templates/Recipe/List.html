@@ -30,16 +30,14 @@
 			</tr>
 
 			<f:for each="{recipes}" as="recipe">
-				<tr>
-					<td><f:link.action action="show" arguments="{recipe : recipe}"> {recipe.name}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{recipe : recipe}"> {recipe.photos}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{recipe : recipe}"> {recipe.nbPeople}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{recipe : recipe}"> {recipe.description}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{recipe : recipe}"> {recipe.difficulty}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{recipe : recipe}"> {recipe.prepTime}</f:link.action></td>
-					<td><f:link.action action="edit" arguments="{recipe : recipe}">Edit</f:link.action></td>
-					<td><f:link.action action="delete" arguments="{recipe : recipe}">Delete</f:link.action></td>
-				</tr>
+					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.name}</f:link.action>
+					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.photos}</f:link.action>
+					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.nbPeople}</f:link.action>
+					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.description}</f:link.action>
+					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.difficulty}</f:link.action>
+					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.prepTime}</f:link.action>
+					<f:link.action action="edit" arguments="{recipe : recipe}">Edit</f:link.action>
+					<f:link.action action="delete" arguments="{recipe : recipe}">Delete</f:link.action>
 			</f:for>
 		</table>
 
