@@ -1,7 +1,5 @@
-<html
-  xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-  data-namespace-typo3-fluid="true"
->
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  	data-namespace-typo3-fluid="true">
   <f:layout name="Default" />
 
   This Template is responsible for creating a table of domain objects. If you
@@ -10,38 +8,46 @@
   List.html: keep Otherwise your changes will be overwritten the next time you
   save the extension in the extension builder
 
-  <f:section name="content">
-    <h1>Listing for Cocktail</h1>
-
-    <f:flashMessages />
-
 	<f:section name="content">
-		<h1>Liste de Cocktails</h1>
-
-		<f:flashMessages />
-
-		<p>Recherche</p> 
-		<f:form.textfield name="textRecherche" />
-
-		<table  class="tx_cocktailsnsvlp" >
-			<tr>
-				<th><f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.name" /></th>
-				<th><f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.alcoholised" /></th>
-				<th><f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.description" /></th>
-			</tr>
-
-			<f:widget.paginate objects="{cocktails}" as="paginatedCocktails" configuration="{itemsPerPage: 1, insertAbove: 1, insertBelow: 0, maximumNumberOfLinks: 10}">
-				<f:for each="{paginatedCocktails}" as="cocktail">
-					<tr>
-						<td><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.name}</f:link.action></td>
-						<td><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.alcoholised}</f:link.action></td>
-						<td><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.description}</f:link.action></td>
-						<!-- <td><f:link.action action="edit" arguments="{cocktail : cocktail}">Edit</f:link.action></td> -->
-						<!-- <td><f:link.action action="delete" arguments="{cocktail : cocktail}">Delete</f:link.action></td> -->
-					</tr>
-				</f:for>
-			</f:widget.paginate>
-		</table>
-
+		<div class="container">
+			<div class="row">			
+				<h1>Liste de Cocktails</h1>
+				<f:widget.paginate objects="{cocktails}" as="paginatedCocktails" configuration="{itemsPerPage: 2, insertAbove: 1, insertBelow: 0, maximumNumberOfLinks: 9}">
+						
+					<f:for each="{paginatedCocktails}" as="cocktail">
+						<div class="col-md-4">
+							<!-- <f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.name" />
+							<f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.alcoholised" />
+							<f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.description" /> -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+							  		<h1 class="panel-title"><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.name}</f:link.action></h1>
+								</div>
+								<div class="panel-body">
+									<f:for each="{cocktail.photos}" as="photo">
+										<f:image 
+											class="img-responsive"
+										  	image="{photo}"
+										  	treatIdAsReference="1"/>
+									</f:for>
+									<h3>Alcoolisé</h3>
+									<f:if condition="{cocktail.alcoholised}=true">
+										<f:then>Oui</f:then>
+									<f:else>
+										Non
+									</f:else>
+									</f:if>
+									<br>
+									<h3>Description</h3>
+									<f:format.raw>{cocktail.description}</f:format.raw>
+								</div>
+							</div>
+							<!-- <td><f:link.action action="edit" arguments="{cocktail : cocktail}">Edit</f:link.action></td> -->
+							<!-- <td><f:link.action action="delete" arguments="{cocktail : cocktail}">Delete</f:link.action></td> -->						
+						</div>
+					</f:for>				
+				</f:widget.paginate>
+			</div>
+		</div>
 	</f:section>
 </html>

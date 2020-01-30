@@ -11,7 +11,8 @@
   save the extension in the extension builder
 
   <f:section name="content">
-    <h1>{cocktail.name}</h1>
+	<h1>{cocktail.name}</h1>
+	<br>
     <h2>Photos</h2>
     <f:for each="{cocktail.photos}" as="photo">
       <f:image
@@ -20,25 +21,25 @@
         minHeight="300"
         maxWidth="500"
         maxHeight="500"
-        treatIdAsReference="1"
-    /></f:for>
-    <h2>Ingrédients</h2
-    ><ul>
+		treatIdAsReference="1"/>
+	</f:for>
+	<br>
+	<h2>Ingrédients</h2>
+	<ul>
       <f:for each="{cocktail.ingredients.name}" as="ingredient">
         <li>{ingredient}</li>
-      </f:for></ul
-    >
-    <h2
-      >Alcolisé :
-      <h3
-        ><f:if condition="{cocktail.alcoholised}=true">
+	  </f:for>
+	</ul>
+	<br>
+    <h2>Alcolisé :
+      <h3><f:if condition="{cocktail.alcoholised}=true">
           <f:then>Oui</f:then>
           <f:else>
             Non
           </f:else>
-        </f:if></h3
-      ></h2
-    >
+		</f:if></h3>
+	</h2>
+	<br>
     <h2>Description</h2>
     <h3>{cocktail.description}</h3>
 

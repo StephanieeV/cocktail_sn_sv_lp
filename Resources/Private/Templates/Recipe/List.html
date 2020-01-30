@@ -1,7 +1,6 @@
 <html
   xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-  data-namespace-typo3-fluid="true"
->
+  data-namespace-typo3-fluid="true">
   <f:layout name="Default" />
 
   This Template is responsible for creating a table of domain objects. If you
@@ -10,98 +9,42 @@
   List.html: keep Otherwise your changes will be overwritten the next time you
   save the extension in the extension builder
 
-  <f:section name="content">
-    <h1>Listing for Recipe</h1>
-
-    <f:flashMessages />
-
-    <table class="tx_cocktailsnsvlp">
-      <tr>
-        <th><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.name"/></th>
-        <th
-          ><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.photos"
-        /></th>
-        <th
-          ><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.nb_people"
-        /></th>
-        <th
-          ><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.description"
-        /></th>
-        <th
-          ><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.difficulty"
-        /></th>
-        <th
-          ><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.prep_time"
-        /></th>
-        <th> </th>
-        <th> </th>
-      </tr>
-
-      <f:for each="{recipes}" as="recipe">
-        <tr>
-          <td
-            ><f:link.action action="show" arguments="{recipe : recipe}">
-              {recipe.name}</f:link.action
-            ></td
-          >
-          <td
-            ><f:link.action action="show" arguments="{recipe : recipe}">
-              {recipe.nbPeople}</f:link.action
-            ></td
-          >
-          <td
-            ><f:link.action action="show" arguments="{recipe : recipe}">
-              {recipe.description}</f:link.action
-            ></td
-          >
-          <td
-            ><f:link.action action="show" arguments="{recipe : recipe}">
-              {recipe.difficulty}</f:link.action
-            ></td
-          >
-          <td
-            ><f:link.action action="show" arguments="{recipe : recipe}">
-              {recipe.prepTime}</f:link.action
-            ></td
-          >
-          <td
-            ><f:link.action action="edit" arguments="{recipe : recipe}"
-              >Edit</f:link.action
-            ></td
-          >
-          <td
-            ><f:link.action action="delete" arguments="{recipe : recipe}"
-              >Delete</f:link.action
-            ></td
-          >
-        </tr>
-      </f:for>
-    </table>
-
-		<table  class="tx_cocktailsnsvlp" >
-			<tr>
-				<th><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.name" /></th>
-				<th><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.photos" /></th>
-				<th><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.nb_people" /></th>
-				<th><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.description" /></th>
-				<th><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.difficulty" /></th>
-				<th><f:translate key="tx_cocktailsnsvlp_domain_model_recipe.prep_time" /></th>
-				<th> </th>
-				<th> </th>
-			</tr>
-
-			<f:for each="{recipes}" as="recipe">
-					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.name}</f:link.action>
-					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.photos}</f:link.action>
-					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.nbPeople}</f:link.action>
-					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.description}</f:link.action>
-					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.difficulty}</f:link.action>
-					<f:link.action action="show" arguments="{recipe : recipe}"> {recipe.prepTime}</f:link.action>
-					<f:link.action action="edit" arguments="{recipe : recipe}">Edit</f:link.action>
-					<f:link.action action="delete" arguments="{recipe : recipe}">Delete</f:link.action>
-			</f:for>
-		</table>
-
-		<f:link.action action="new">New Recipe</f:link.action>
+  	<f:section name="content">
+		<div class="container">
+			<div class="row">			
+				<h1>Liste de Recettes</h1>
+				<f:widget.paginate objects="{recipes}" as="paginatedRecipes" configuration="{itemsPerPage: 2, insertAbove: 1, insertBelow: 0, maximumNumberOfLinks: 9}">
+						
+					<f:for each="{paginatedRecipes}" as="recipe">
+						<div class="col-md-4">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h1 class="panel-title"><f:link.action action="show" arguments="{cocktail : cocktail}"> {recipe.name}</f:link.action></h1>
+								</div>
+								<div class="panel-body">
+									<f:for each="{recipe.photos}" as="photo">
+										<f:image 
+											class="img-responsive"
+											image="{photo}"
+											treatIdAsReference="1"/>
+									</f:for>
+									<h3>Nombre de personnes</h3>
+									<f:format.raw>{recipe.nbPeople}</f:format.raw>
+									<br>
+									<h3>Description</h3>
+									<f:format.raw>{recipe.description}</f:format.raw>
+									<br>
+									<h3>Difficulté</h3>
+									<f:format.raw>{recipe.difficulty}</f:format.raw>
+									<br>
+									<h3>Temps de préparation</h3>
+									<f:format.raw>{recipe.prepTime}</f:format.raw>
+								</div>
+							</div>
+						</div>
+					</f:for>				
+				</f:widget.paginate>
+			</div>
+		</div>
 	</f:section>
 </html>
