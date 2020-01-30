@@ -11,43 +11,53 @@
   save the extension in the extension builder
 
   <f:section name="content">
-    <h1>{recipe.name}</h1>
-    <f:for each="{recipe.photos}" as="photo">
-      <f:image
-        image="{photo}"
-        minWidth="400"
-        minHeight="300"
-        maxWidth="500"
-        maxHeight="500"
-        treatIdAsReference="1"
-      />
-    </f:for>
-    <h2>Nombre de personnes: <h3>{recipe.nbPeople}</h3></h2>
-    <h2>Ingrédients</h2>
-    <ul>
-      <f:for each="{recipe.quantity}" as="quantity">
-        <li>{quantity.value}{quantity.unity} {quantity.ingredient.name}</li>
-      </f:for>
-    </ul>
-    <h2>Allergènes</h2>
-    <ul>
-      <f:for each="{recipe.all}" as="quantity">
-        <li>{quantity.ingredient.name}</li>
-      </f:for>
-    </ul>
-    <h2
-      >Alcolisé :
-      <h3>
-        <f:if condition="{recipe.alcoholised}=true">
-          <f:then>Oui</f:then>
-          <f:else>
-            Non
-          </f:else>
-        </f:if>
-      </h3>
-    </h2>
-    <h2>Description</h2>
-    <h3>{recipe.description}</h3>
+    <h1 class="text-center">{recipe.name}</h1><hr>
+    <div>
+      <h4>Photos</h4>
+      <f:for each="{recipe.photos}" as="photo">
+        <f:image
+          image="{photo}"
+          minWidth="400"
+          minHeight="300"
+          maxWidth="500"
+          maxHeight="500"
+          treatIdAsReference="1"
+        /> </f:for
+    ></div><hr>
+    <div>
+      <h4>Nombre de personnes: <p>{recipe.nbPeople}</p></h4>
+      <h4>Ingrédients</h4>
+      <ul>
+        <f:for each="{recipe.quantity}" as="quantity">
+          <li>{quantity.value} {quantity.unity} de : {quantity.ingredient.name}</li>
+        </f:for>
+      </ul></div
+    ><hr>
+    <div>
+      <h4>Allergènes</h4>
+      <ul>
+        <f:for each="{recipe.all}" as="quantity">
+          <li>{quantity.ingredient.name}</li>
+        </f:for>
+      </ul></div
+    ><hr>
+    <div>
+      <h4
+        >Alcolisé :
+        <p>
+          <f:if condition="{recipe.alcoholised}=true">
+            <f:then>Oui</f:then>
+            <f:else>
+              Non
+            </f:else>
+          </f:if>
+        </p>
+      </h4></div
+    ><hr>
+    <div>
+      <h4>Description</h4>
+      <p>{recipe.description}</p></div
+    ><hr>
 
     <f:flashMessages />
     <f:render partial="Recipe/Properties" arguments="{recipe:recipe}" />
