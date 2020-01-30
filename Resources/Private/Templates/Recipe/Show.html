@@ -25,11 +25,11 @@
         /> </f:for
     ></div><hr>
     <div>
-      <h4>Nombre de personnes: <p>{recipe.nbPeople}</p></h4>
+      <h4>Nombre de personnes: <f:format.raw>{recipe.nbPeople}</f:format.raw></h4>
       <h4>Ingrédients</h4>
       <ul>
         <f:for each="{recipe.quantity}" as="quantity">
-          <li>{quantity.value} {quantity.unity} de : {quantity.ingredient.name}</li>
+          <li><f:format.raw>{quantity.value} {quantity.unity} de : {quantity.ingredient.name}</f:format.raw></li>
         </f:for>
       </ul></div
     ><hr>
@@ -37,7 +37,7 @@
       <h4>Allergènes</h4>
       <ul>
         <f:for each="{recipe.all}" as="quantity">
-          <li>{quantity.ingredient.name}</li>
+          <f:format.raw>{quantity.ingredient.name}</f:format.raw>
         </f:for>
       </ul></div
     ><hr>
@@ -53,11 +53,20 @@
           </f:if>
         </p>
       </h4></div
-    ><hr>
+    >
+    <hr>
+    <div>
+      <h4>Ingrédients</h4>
+      <ul>
+        <f:for each="{recipe.quantities.ingredient.name}" as="ingredient">
+          <li>{ingredient}</li>
+        </f:for>
+      </ul>
+    </div>
     <div>
       <h4>Description</h4>
-      <p>{recipe.description}</p></div
-    ><hr>
+      <f:format.raw>{recipe.description}</f:format.raw>
+    </div><hr>
 
     <f:flashMessages />
     <f:render partial="Recipe/Properties" arguments="{recipe:recipe}" />

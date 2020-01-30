@@ -15,24 +15,10 @@
     <div
       ><h4>Photos</h4>
       <f:for each="{cocktail.photos}" as="photo">
-        <f:image
-          image="{photo}"
-          minWidth="400"
-          minHeight="300"
-          maxWidth="500"
-          maxHeight="500"
-          treatIdAsReference="1"
-          class="img-rounded"/></f:for
+        <img class="img-responsive" src="{f:uri.image(image: photo, maxWidth:500, treatIdAsReference: 1)}" width="500" />
+      </f:for
     ></div>
-    <hr>
-    <div>
-      <h4>Ingrédients</h4>
-      <ul>
-        <f:for each="{cocktail.quantities.ingredient.name}" as="ingredient">
-          <li>{ingredient}</li>
-        </f:for></ul
-      ></div
-    >
+    
     <hr>
     <div>
       <h4>Alcolisé :</h4>
@@ -47,7 +33,7 @@
     ><hr>
     <div>
       <h4>Description</h4>
-      <p>{cocktail.description}</p>
+      <f:format.raw>{cocktail.description}</f:format.raw>
     </div>
 
 <div>

@@ -12,8 +12,7 @@
 		<div class="container">
 			<div class="row">			
 				<h1>Liste de Cocktails</h1>
-				<f:widget.paginate objects="{cocktails}" as="paginatedCocktails" configuration="{itemsPerPage: 9, insertAbove: 1, insertBelow: 0, maximumNumberOfLinks: 9}">
-						
+				<f:widget.paginate objects="{cocktails}" as="paginatedCocktails" configuration="{itemsPerPage: 9, insertAbove: 1, insertBelow: 0, maximumNumberOfLinks: 5}">		
 					<f:for each="{paginatedCocktails}" as="cocktail">
 						<div class="col-md-4">
 							<!-- <f:translate key="tx_cocktailsnsvlp_domain_model_cocktail.name" />
@@ -24,9 +23,11 @@
 							  		<h1 class="panel-title"><f:link.action action="show" arguments="{cocktail : cocktail}"> {cocktail.name}</f:link.action></h1>
 								</div>
 								<div class="panel-body">
-									<f:for each="{cocktail.photos}" as="photo">
-                    <img class="img-responsive" src="{f:uri.image(image: photo, maxWidth:500, treatIdAsReference: 1)}" width="500" />
-                  </f:for>
+									<f:for each="{cocktail.photos}" as="photo" iteration="iterator">
+                    <f:if condition="{iterator.isFirst}">
+                    <img class="img-responsive" src="{f:uri.image(image: photo, height:500, treatIdAsReference: 1)}" width="500" />
+                    </f:if>
+									</f:for>
 									<h3>Alcoolisé</h3>
 									<f:if condition="{cocktail.alcoholised}=true">
 										<f:then>Oui</f:then>
