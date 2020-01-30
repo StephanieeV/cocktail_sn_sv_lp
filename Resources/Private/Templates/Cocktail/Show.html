@@ -11,38 +11,48 @@
   save the extension in the extension builder
 
   <f:section name="content">
-	<h1>{cocktail.name}</h1>
-	<br>
-    <h2>Photos</h2>
-    <f:for each="{cocktail.photos}" as="photo">
-      <f:image
-        image="{photo}"
-        minWidth="400"
-        minHeight="300"
-        maxWidth="500"
-        maxHeight="500"
-        class="img-rounded"
-		treatIdAsReference="1"/>
-	</f:for>
-	<br>
-	<h2>Ingrédients</h2>
-	<ul>
-      <f:for each="{cocktail.ingredients.name}" as="ingredient">
-        <li>{ingredient}</li>
-	  </f:for>
-	</ul>
-	<br>
-    <h2>Alcolisé :
-      <h3><f:if condition="{cocktail.alcoholised}=true">
+    <h1 class="text-center">{cocktail.name}</h1><hr>
+    <div
+      ><h4>Photos</h4>
+      <f:for each="{cocktail.photos}" as="photo">
+        <f:image
+          image="{photo}"
+          minWidth="400"
+          minHeight="300"
+          maxWidth="500"
+          maxHeight="500"
+          treatIdAsReference="1"
+          class="img-rounded"/></f:for
+    ></div>
+    <hr>
+    <div>
+      <h4>Ingrédients</h4>
+      <ul>
+        <f:for each="{cocktail.ingredients.name}" as="ingredient">
+          <li><f:format.raw>{ingredient}</f:format.raw></li>
+        </f:for></ul
+      ></div
+    >
+    <hr>
+    <div>
+      <h4>Alcolisé :</h4>
+      <p
+        ><f:if condition="{cocktail.alcoholised}=true">
           <f:then>Oui</f:then>
           <f:else>
             Non
           </f:else>
-		</f:if></h3>
-	</h2>
-	<br>
-    <h2>Description</h2>
-    <h3>{cocktail.description}</h3>
+        </f:if></p
+      ></div
+    ><hr>
+    <div>
+      <h4>Description</h4>
+      <f:format.raw>{cocktail.description}</f:format.raw>
+    </div>
+
+<div>
+  <f:link.action action="recipe.list">Voir les recettes</f:link.action>
+</div>
 
     <f:flashMessages />
 
