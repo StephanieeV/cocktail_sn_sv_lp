@@ -19,6 +19,17 @@ namespace SNSVLP\CocktailSnSvLp\Domain\Model;
  */
 class Quantity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+    const UNIT_LEAF = ["feuille", 0];
+    const UNIT_TABLE_SPOON = ["c.s", 1];
+    const UNIT_TEA_SPOON = ["c.c", 2];
+    const UNIT_ZEST = ["zest", 4];
+    const UNIT_GRAMME = ["gramme", 5];
+    const UNIT_LITRE = ["litre", 6];
+    const UNIT_CLITRE = ["cl", 7];
+    const UNIT_MLITRE = ["ml", 8];
+    const UNIT_CUBE = ["cube", 9];
+
+
     /**
      * Valeur
      * 

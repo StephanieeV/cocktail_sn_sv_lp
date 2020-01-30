@@ -1,4 +1,6 @@
 <?php
+use SNSVLP\CocktailSnSvLp\Domain\Model\Quantity;
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:cocktail_sn_sv_lp/Resources/Private/Language/locallang_db.xlf:tx_cocktailsnsvlp_domain_model_quantity',
@@ -132,7 +134,15 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['-- Label --', 0],
+                    [Quantity::UNIT_LEAF[0], Quantity::UNIT_LEAF[1]],
+                    [Quantity::UNIT_LITRE[0], Quantity::UNIT_LITRE[1]],
+                    [Quantity::UNIT_CLITRE[0], Quantity::UNIT_CLITRE[1]],
+                    [Quantity::UNIT_MLITRE[0], Quantity::UNIT_MLITRE[1]],
+                    [Quantity::UNIT_GRAMME[0], Quantity::UNIT_GRAMME[1]],
+                    [Quantity::UNIT_TABLE_SPOON[0], Quantity::UNIT_TABLE_SPOON[1]],
+                    [Quantity::UNIT_TEA_SPOON[0], Quantity::UNIT_TEA_SPOON[1]],
+                    [Quantity::UNIT_ZEST[0], Quantity::UNIT_ZEST[1]],
+                    [Quantity::UNIT_CUBE[0], Quantity::UNIT_CUBE[1]],
                 ],
                 'size' => 1,
                 'maxitems' => 1,

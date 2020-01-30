@@ -19,6 +19,13 @@ namespace SNSVLP\CocktailSnSvLp\Domain\Model;
  */
 class Recipe extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+    const DIFFICULTY_EASY = ["simple", 0];
+    const DIFFICULTY_NORMAL = ["moyen", 1];
+    const DIFFICULTY_DIFFICULT = ["difficile", 2];
+    const DIFFICULTY_VERYDIFFICULT = ["très difficile", 3];
+    const DIFFICULTY_MASTER = ["master", 4];
+
+
     /**
      * Nom
      * 

@@ -1,4 +1,5 @@
 <?php
+use SNSVLP\CocktailSnSvLp\Domain\Model\Recipe;
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:cocktail_sn_sv_lp/Resources/Private/Language/locallang_db.xlf:tx_cocktailsnsvlp_domain_model_recipe',
@@ -206,7 +207,11 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['-- Label --', 0],
+                    [Recipe::DIFFICULTY_EASY[0], Recipe::DIFFICULTY_EASY[1]],
+                    [Recipe::DIFFICULTY_NORMAL[0], Recipe::DIFFICULTY_NORMAL[1]],
+                    [Recipe::DIFFICULTY_DIFFICULT[0], Recipe::DIFFICULTY_DIFFICULT[1]],
+                    [Recipe::DIFFICULTY_VERYDIFFICULT[0], Recipe::DIFFICULTY_VERYDIFFICULT[1]],
+                    [Recipe::DIFFICULTY_MASTER[0], Recipe::DIFFICULTY_MASTER[1]],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
