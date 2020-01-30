@@ -6,7 +6,6 @@
 #
 
 ---
-
 ###########    Overwrite settings  ###########
 #
 # These settings only apply, if the roundtrip feature of the extension builder
@@ -53,7 +52,7 @@ overwriteSettings:
   Resources:
     Private:
       #Language: merge
-      #Templates: keep
+      Templates: Show.html: keep
 
   user_extension.svg: keep
 
@@ -71,7 +70,7 @@ overwriteSettings:
 
 ## list of error codes for warnings that should be ignored ##
 #ignoreWarnings:
-  #503
+#503
 
 ######### settings for classBuilder #############################
 #
@@ -84,7 +83,6 @@ overwriteSettings:
 #################################################################
 
 classBuilder:
-
   Controller:
     parentClass: \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
