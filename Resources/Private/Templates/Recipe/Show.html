@@ -11,7 +11,6 @@
   save the extension in the extension builder
 
   <f:section name="content">
-<<<<<<< HEAD
     <div class="panel panel-default">
       <div class="panel-heading">
         <h1 class="text-center">{recipe.name}</h1>
@@ -90,72 +89,6 @@
     
     
     
-=======
-    <h1 class="text-center">{recipe.name}</h1><hr>
-    <div>
-      <h4>Photos</h4>
-      <f:for each="{recipe.photos}" as="photo">
-        <f:image
-          image="{photo}"
-          minWidth="400"
-          minHeight="300"
-          maxWidth="500"
-          maxHeight="500"
-          treatIdAsReference="1"
-        /> 
-      </f:for>
-    </div>
-    <hr>
-    <div>
-      <h4>Nombre de personnes: <f:format.raw>{recipe.nbPeople}</f:format.raw></h4>
-      <h4>Ingrédients</h4>
-      <ul>
-        <f:for each="{recipe.quantity}" as="quantity">
-          <li><f:format.raw>{quantity.value} {quantity.unity} de : {quantity.ingredient.name}</f:format.raw></li>
-        </f:for>
-      </ul>
-    </div>
-    <hr>
-    <div>
-      <h4>Allergènes</h4>
-      <ul>
-        <f:for each="{recipe.all}" as="quantity">
-          <f:format.raw>{quantity.ingredient.name}</f:format.raw>
-        </f:for>
-      </ul>
-    </div>
-    <hr>
-    <div>
-      <h4>Alcolisé :
-        <p>
-          <f:if condition="{recipe.alcoholised}=true">
-            <f:then>Oui</f:then>
-            <f:else>
-              Non
-            </f:else>
-          </f:if>
-        </p>
-      </h4>
-    </div>
-    <hr>
-    <div>
-      <h4>Ingrédients</h4>
-      <ul>
-        <f:for each="{recipe.quantities.ingredient.name}" as="ingredient">
-          <li>{ingredient}</li>
-        </f:for>
-      </ul>
-    </div>
-    <div>
-      <h4>Description</h4>
-      <f:format.raw>{recipe.description}</f:format.raw>
-    </div>
-    <hr>
-
-    <f:flashMessages />
-    <f:render partial="Recipe/Properties" arguments="{recipe:recipe}" />
-    <f:link.action action="list">Back to list</f:link.action><br />
->>>>>>> deca7c6b00927e54ad269429c9165c29c9f657cc
   </f:section>
   <!-- Ne marche pas, je n'ai pas trouver comment résoudre le probleme dû au manque de doc ... -->
   <!-- <v:render.template file="EXT:cocktail_sn_sv_lp/Resources/Private/Templates/Review/New.html" >
