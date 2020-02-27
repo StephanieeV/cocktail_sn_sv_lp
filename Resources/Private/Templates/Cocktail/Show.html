@@ -11,6 +11,7 @@
   save the extension in the extension builder
 
   <f:section name="content">
+<<<<<<< HEAD
     <div class="panel panel-default">
       <div class="panel-heading">
         <h1 class="text-center">{cocktail.name}</h1>
@@ -57,6 +58,47 @@
       </div>
       
     </div>
+=======
+      <h1 class="text-center">{cocktail.name}</h1><hr>
+      <div>
+        <h4>Photos</h4>
+        <f:for each="{cocktail.photos}" as="photo">
+          <img class="img-responsive" src="{f:uri.image(image: photo, maxWidth:500, treatIdAsReference: 1)}" width="500" />
+        </f:for>
+      </div>
+      <hr>
+      <div>
+        <h4>Ingrédients</h4>
+        <ul>
+          <f:for each="{cocktail.ingredients.name}" as="ingredient">
+            <li><f:format.raw>{ingredient}</f:format.raw></li>
+          </f:for>
+        </ul>
+      </div>
+      <hr>
+      <div>
+        <h4>Alcolisé :</h4>
+        <p><f:if condition="{cocktail.alcoholised}=true">
+          <f:then>Oui</f:then>
+          <f:else>
+            Non
+          </f:else>
+          </f:if>
+        </p>
+      </div
+      ><hr>
+      <div>
+        <h4>Description</h4>
+        <f:format.raw>{cocktail.description}</f:format.raw>
+      </div>
+    <div>
+      <f:link.action action="recipe.list">Voir les recettes</f:link.action>
+    </div>
+
+    <f:flashMessages />
+
+    <f:link.action action="list">Retour à la liste</f:link.action><br />
+>>>>>>> deca7c6b00927e54ad269429c9165c29c9f657cc
   </f:section>
   
 </html>
